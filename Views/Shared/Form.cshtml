@@ -1,0 +1,136 @@
+﻿@model TPLOCAL1.Models.Informations
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Formulaire</title>
+        <link rel="stylesheet" href="~/resources/Index.css" />
+    </head>
+    <body>
+        <header>
+            <img src="~/resources/GroupeHN.png" class="image" alt="GroupeHN" />
+            <h1>Formulaire TP HN avis</h1>
+        </header>
+        <nav>
+            <ul>
+                <li><a href="/Home/Index">Accueil</a></li>
+                <li><a href="/Home/Index/AvisList">Liste Avis</a></li>
+            </ul>
+        </nav>
+
+
+        <section>
+            <form asp-controller="Home" asp-action="ValidationFormulaire" method="post">
+            @*Tableau des informations personnelles*@
+                <table>
+                    <tr>
+                        <th colspan="2">Informations personnelles</th>
+                    </tr>
+                    <tr>
+                        <td><label asp-for="Nom"></label></td>
+                        <td>
+                            <input asp-for="Nom" />
+                            <span asp-validation-for="Nom" class="erreur"></span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><label asp-for="Prénom"></label></td>
+                        <td>
+                            <input asp-for="Prénom" />
+                            <span asp-validation-for="Prénom" class="erreur"></span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><label asp-for="Genre"></label></td>
+                        <td>
+                            <select asp-for="Genre">
+                                <option value="">Sélectionnez un sexe</option>
+                                <option value="Homme">Homme</option>
+                                <option value="Femme">Femme</option>
+                                <option value="Autre">Autre</option>
+                            </select>
+                            <span asp-validation-for="Genre" class="erreur"></span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><label asp-for="Adresse"></label></td>
+                        <td>
+                            <input asp-for="Adresse" />
+                            <span asp-validation-for="Adresse" class="erreur"></span>
+                        </td>
+                        
+                    </tr>
+                    <tr>
+                        <td><label asp-for="CodePostal"></label></td>
+                        <td>
+                            <input asp-for="CodePostal" maxlength="5" />
+                            <span asp-validation-for="CodePostal" class="erreur"></span>
+                        </td>
+                        
+                    </tr>
+                    <tr>
+                        <td><label asp-for="Ville"></label></td>
+                        <td>
+                            <input asp-for="Ville" />
+                            <span asp-validation-for="Ville" class="erreur"></span>
+                        </td>
+                        
+                    </tr>
+                    <tr>
+                        <td><label asp-for="Courriel"></label></td>
+                        <td>
+                            <input asp-for="Courriel" />
+                            <span asp-validation-for="Courriel" class="erreur"></span>
+                        </td>
+                    </tr>
+                </table>
+
+                @*Tableau d'information sur la formation suivie*@
+                <table>
+                    <tr>
+                        <th colspan="2">Informations formation suivie</th>
+                    </tr>
+                    <tr>
+                        <td><label asp-for="DateDebut"></label></td>
+                        <td>
+                            <input asp-for="DateDebut" />
+                            <span asp-validation-for="DateDebut" class="erreur"></span>
+                        </td>
+                        
+                    </tr>
+                    <tr>
+                        <td><label asp-for="TypeFormation"></label></td>
+                        <td>
+                            <select asp-for="TypeFormation">
+                                <option value="">Sélectionnez un cours</option>
+                                <option value="Formation Cobol">Formation Cobol</option>
+                                <option value="Formation par objet">Formation par objet</option>
+                                <option value="Formation à double compétence">Formation à double compétence</option>
+                            </select>
+                            <span asp-validation-for="TypeFormation" class="erreur"></span>
+
+                        </td>
+                    </tr>
+                </table>
+
+                @*Tableau sur l'avis de la formation*@
+                <table>
+                    <tr>
+                        <th colspan="2">Avis sur la formation</th>
+                    </tr>
+                    <tr>
+                        <td><label asp-for="Cobol"></label></td>
+                        <td><input asp-for="Cobol" /></td>
+                    </tr>
+                    <tr>
+                        <td><label asp-for="CSharp"></label></td>
+                        <td><input asp-for="CSharp" /></td>
+                    </tr>
+                </table>
+
+                <button type="submit">Valider</button>
+            </form>
+        </section>
+        
+
+    </body>
+</html>
